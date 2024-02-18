@@ -69,7 +69,7 @@ export const InitialModal = () => {
     if (!isMounted) return null;
 
     return (
-        <Dialog>
+        <Dialog open>
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 lx-6">
                     <DialogTitle className="text-2xl text-center font-bold">
