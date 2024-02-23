@@ -17,12 +17,13 @@ import { Button } from "@/components/ui/button";
 import { useOrigin } from "@/hooks/use-origins";
 
 export const InviteModal = () => {
-    const { isOpen, onClose, type } = useModal()
+    const { isOpen, onClose, type, data } = useModal()
     const origin = useOrigin()
 
     const isModalOpen = isOpen && type === "invite"
+    const { server } = data
 
-    const inviteUrl = `${origin}`
+    const inviteUrl = `${origin}/invite/${server?.inviteCode}`
 
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose}>
