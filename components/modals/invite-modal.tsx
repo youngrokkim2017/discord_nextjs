@@ -14,12 +14,15 @@ import { useModal } from "@/hooks/use-modal-store";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useOrigin } from "@/hooks/use-origins";
 
 export const InviteModal = () => {
     const { isOpen, onClose, type } = useModal()
-    const router = useRouter()
+    const origin = useOrigin()
 
     const isModalOpen = isOpen && type === "invite"
+
+    const inviteUrl = `${origin}`
 
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose}>
@@ -36,7 +39,7 @@ export const InviteModal = () => {
                     <div className="flex items-center mt-2 gap-x-2">
                         <Input 
                             className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                            value="invite-link"
+                            value={inviteUrl}
                         />
                         <Button size="icon">
                             <Copy className="w-4 h-4" />
